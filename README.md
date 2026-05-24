@@ -8,6 +8,16 @@ Inspired by Pinterest aesthetics, Notion-style minimalism, and cozy productivity
 
 # ✨ Features
 
+# 🌸 MoodLily – Aesthetic Mood Journal
+
+MoodLily is a modern full-stack aesthetic mood journaling web application designed for students and young users who want a cozy digital space to track emotions, write journals, and relax productively.
+
+Inspired by Pinterest aesthetics, Notion-style minimalism, and cozy productivity apps, MoodLily combines wellness, journaling, analytics, and relaxing UI experiences into one beautiful platform.
+
+---
+
+# ✨ Features
+
 ## 🔐 Authentication System
 
 - User Signup & Login
@@ -92,23 +102,23 @@ MoodLily/
 │   ├── login.html
 │   ├── signup.html
 │   ├── dashboard.html
-│   ├── journal.html
-│   ├── analytics.html
-│   ├── relax.html
-│   ├── profile.html
-│   │
-│   ├── styles/
-│   ├── scripts/
-│   └── assets/
+	├── journal.html
+	├── analytics.html
+	├── relax.html
+	├── profile.html
+	│
+	├── styles/
+	├── scripts/
+	└── assets/
 │
 ├── backend/
 │   ├── server.js
-│   ├── database.js
-│   │
-│   ├── routes/
-│   ├── controllers/
-│   ├── models/
-│   └── middleware/
+	├── database.js
+	│
+	├── routes/
+	├── controllers/
+	├── models/
+	└── middleware/
 │
 ├── .gitignore
 ├── README.md
