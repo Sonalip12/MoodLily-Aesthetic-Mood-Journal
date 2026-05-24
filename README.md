@@ -1,4 +1,3 @@
-````markdown
 # 🌸 MoodLily – Aesthetic Mood Journal
 
 MoodLily is a modern full-stack aesthetic mood journaling web application designed for students and young users who want a cozy digital space to track emotions, write journals, and relax productively.
@@ -246,6 +245,3 @@ This project helped in understanding:
 # 👩‍💻 Author
 
 Developed with 💖 by Sonali Pradhan
-
----
-````
