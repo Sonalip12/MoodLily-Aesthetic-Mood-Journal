@@ -22,6 +22,46 @@
     <div class="floating floating1"></div>
     <div class="floating floating2"></div>
     <div class="floating floating3"></div>
+    <div class="moon-glow" aria-hidden="true"></div>
+    <div class="sakura-layer" aria-hidden="true">
+      <span class="sakura sakura1"></span>
+      <span class="sakura sakura2"></span>
+      <span class="sakura sakura3"></span>
+      <span class="sakura sakura4"></span>
+      <span class="sakura sakura5"></span>
+      <span class="sakura sakura6"></span>
+      <span class="sakura sakura7"></span>
+      <span class="sakura sakura8"></span>
+      <span class="sakura sakura9"></span>
+      <span class="sakura sakura10"></span>
+      <span class="sakura sakura11"></span>
+      <span class="sakura sakura12"></span>
+      <span class="sakura sakura13"></span>
+      <span class="sakura sakura14"></span>
+      <span class="sakura sakura15"></span>
+      <span class="sakura sakura16"></span>
+    </div>
+
+    <div class="music-widget" aria-label="Homepage music player">
+      <button id="musicToggle" class="music-toggle" type="button">
+        Play melody
+      </button>
+      <span id="musicStatus" class="music-status">Calm melody ready</span>
+    </div>
+
+    <audio
+      id="homepageMusic"
+      preload="auto"
+      autoplay
+      loop
+      playsinline
+      aria-hidden="true"
+    >
+      <source
+        src="assets/Stay%20With%20Me%20-%20Instrumental%20_%20.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
 
     <!-- Navbar -->
 
@@ -62,29 +102,29 @@
       <h2>Why You'll Love MoodLily 💖</h2>
 
       <div class="feature-grid">
-        <div class="feature-card">
+        <a class="feature-card" href="dashboard.html">
           <span>😊</span>
           <h3>Mood Tracking</h3>
           <p>Log emotions daily with aesthetic emoji mood cards.</p>
-        </div>
+        </a>
 
-        <div class="feature-card">
+        <a class="feature-card" href="journal.html">
           <span>📖</span>
           <h3>Daily Journals</h3>
           <p>Capture your thoughts in a calm and private digital diary.</p>
-        </div>
+        </a>
 
-        <div class="feature-card">
+        <a class="feature-card" href="analytics.html">
           <span>📊</span>
           <h3>Mood Analytics</h3>
           <p>Visualize emotional trends with beautiful charts.</p>
-        </div>
+        </a>
 
-        <div class="feature-card">
+        <a class="feature-card" href="relax.html">
           <span>🎵</span>
           <h3>Relax Mode</h3>
           <p>Focus timers, calming music, and breathing animations.</p>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -145,5 +185,7 @@
         <span> © 2026 MoodLily. Made with 💖 </span>
       </div>
     </footer>
+
+    <script src="scripts/home-music.js"></script>
   </body>
 </html>

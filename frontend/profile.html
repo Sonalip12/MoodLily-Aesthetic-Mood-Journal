@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile 🌸</title>
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-nav">
+        <a href="dashboard.html">MoodLily 🌸</a>
+        <div class="page-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="journal.html">Journal</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="relax.html">Relax</a>
+          <button id="logoutBtn" class="button-secondary" type="button">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <section class="page-hero">
+        <h1>Your Profile</h1>
+        <p>
+          Manage your session and check the account currently stored in this
+          browser.
+        </p>
+      </section>
+
+      <section class="page-card">
+        <h2 id="profileName">User</h2>
+        <p class="muted" id="profileEmail" style="margin-top: 10px">
+          Account details
+        </p>
+      </section>
+    </div>
+
+    <script src="scripts/profile.js"></script>
+  </body>
+</html>

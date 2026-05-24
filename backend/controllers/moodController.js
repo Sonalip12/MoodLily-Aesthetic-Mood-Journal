@@ -29,6 +29,39 @@ const addMood = (req, res) => {
 
 };
 
+const getMoodSummary = (req, res) => {
+
+  const { user_id } = req.query;
+
+  if (!user_id) {
+    return res.status(400).json({
+      error: "user_id is required",
+    });
+  }
+
+  db.all(
+    `
+    SELECT mood, COUNT(*) AS count
+    FROM moods
+    WHERE user_id = ?
+    GROUP BY mood
+    ORDER BY count DESC
+    `,
+    [user_id],
+    (err, rows) => {
+      if (err) {
+        return res.status(500).json({
+          error: err.message,
+        });
+      }
+
+      res.json({ summary: rows });
+    }
+  );
+
+};
+
 module.exports = {
   addMood,
+  getMoodSummary,
 };

@@ -10,6 +10,9 @@ const authRoutes =
 const moodRoutes =
   require("./routes/moodRoutes");
 
+const journalRoutes =
+  require("./routes/journalRoutes");
+
 const app = express();
 
 app.use(express.json());
@@ -32,6 +35,8 @@ app.use(
 app.use("/api/auth", authRoutes);
 
 app.use("/api/moods", moodRoutes);
+
+app.use("/api/journals", journalRoutes);
 
 app.get("/", (req,res) => {
   res.send(

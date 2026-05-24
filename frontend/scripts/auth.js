@@ -1,3 +1,6 @@
+const getRelativePageUrl = (pageName) =>
+  new URL(pageName, window.location.href).href;
+
 const signupForm = document.getElementById("signupForm");
 
 if (signupForm) {
@@ -35,7 +38,7 @@ if (signupForm) {
     alert(data.message || data.error);
 
     if (response.ok) {
-      window.location.href = "login.html";
+      window.location.replace(getRelativePageUrl("login.html"));
     }
   });
 }
@@ -78,8 +81,9 @@ if (loginForm) {
         JSON.stringify(data.user)
       );
 
-      window.location.href =
-        "dashboard.html";
+      window.location.replace(
+        getRelativePageUrl("dashboard.html")
+      );
     }
   });
 }
