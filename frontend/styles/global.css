@@ -4,22 +4,89 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:'Poppins',sans-serif;
+
   background:linear-gradient(
     135deg,
     #F8C8DC,
     #CDB4DB
   );
 
-  min-height:100vh;
-  overflow-x:hidden;
   color:#4B4453;
+
+  overflow-x:hidden;
 }
+
+/* Floating Shapes */
+
+.floating{
+  position:fixed;
+
+  border-radius:50%;
+
+  opacity:0.3;
+
+  filter:blur(20px);
+
+  animation:float 6s infinite ease-in-out;
+}
+
+.floating1{
+  width:200px;
+  height:200px;
+
+  background:#fff;
+
+  top:10%;
+  left:5%;
+}
+
+.floating2{
+  width:250px;
+  height:250px;
+
+  background:#FDE2E4;
+
+  bottom:10%;
+  right:10%;
+}
+
+.floating3{
+  width:180px;
+  height:180px;
+
+  background:#fff;
+
+  top:50%;
+  right:30%;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-20px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+/* Navbar */
 
 .navbar{
   width:100%;
+
   padding:20px 8%;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -27,7 +94,7 @@ body{
 
 .nav-links{
   display:flex;
-  gap:15px;
+  gap:20px;
 }
 
 .nav-links a{
@@ -38,35 +105,47 @@ body{
 
 .signup-btn{
   background:white;
-  padding:10px 18px;
+  padding:10px 20px;
   border-radius:20px;
 }
 
+/* Hero */
+
 .hero{
-  min-height:85vh;
+  min-height:90vh;
+
   display:flex;
   justify-content:center;
   align-items:center;
-  text-align:center;
-  padding:20px;
+
+  padding:40px;
 }
 
 .hero-text{
-  background:rgba(255,255,255,0.25);
-  padding:50px;
-  border-radius:30px;
-  backdrop-filter:blur(12px);
-  max-width:700px;
+  max-width:750px;
+
+  text-align:center;
+
+  background:rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(14px);
+
+  padding:60px;
+
+  border-radius:35px;
+
   box-shadow:0 8px 32px rgba(0,0,0,0.08);
 }
 
-.hero h2{
-  font-size:3rem;
-  margin-bottom:20px;
+.hero-text h2{
+  font-size:4rem;
+  margin-bottom:25px;
 }
 
-.hero p{
-  font-size:1.1rem;
+.hero-text p{
+  font-size:1.2rem;
+  line-height:1.7;
+
   margin-bottom:30px;
 }
 
@@ -78,9 +157,12 @@ body{
 
 .primary-btn,
 .secondary-btn{
-  padding:14px 28px;
-  border-radius:25px;
+  padding:15px 30px;
+
+  border-radius:30px;
+
   text-decoration:none;
+
   transition:0.3s;
 }
 
@@ -96,5 +178,147 @@ body{
 
 .primary-btn:hover,
 .secondary-btn:hover{
-  transform:translateY(-3px);
+  transform:translateY(-5px);
+}
+
+/* Features */
+
+.features{
+  padding:100px 8%;
+}
+
+.features h2{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:2.5rem;
+}
+
+.feature-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+  gap:30px;
+}
+
+.feature-card{
+  background:rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(12px);
+
+  padding:40px;
+
+  border-radius:30px;
+
+  text-align:center;
+
+  transition:0.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+}
+
+.feature-card span{
+  font-size:3rem;
+}
+
+.feature-card h3{
+  margin:20px 0;
+}
+
+/* About */
+
+.about{
+  padding:80px 8%;
+}
+
+.about-card{
+  background:rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(12px);
+
+  padding:60px;
+
+  border-radius:35px;
+
+  text-align:center;
+}
+
+/* Testimonials */
+
+.testimonials{
+  padding:100px 8%;
+}
+
+.testimonials h2{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.testimonial-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap:30px;
+}
+
+.testimonial-card{
+  background:white;
+
+  padding:35px;
+
+  border-radius:25px;
+
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Footer */
+
+.footer{
+  margin-top:80px;
+
+  padding:50px 8%;
+
+  background:rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(12px);
+}
+
+.footer-content{
+  text-align:center;
+}
+
+.footer-links{
+  margin:20px 0;
+
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:#4B4453;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .navbar{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .hero-text h2{
+    font-size:2.5rem;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
 }

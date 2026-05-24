@@ -3,28 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>MoodLily 🌸</title>
 
     <link rel="stylesheet" href="styles/global.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
-    <div class="background-blur"></div>
+    <!-- Floating Background -->
+
+    <div class="floating floating1"></div>
+    <div class="floating floating2"></div>
+    <div class="floating floating3"></div>
+
+    <!-- Navbar -->
 
     <nav class="navbar">
       <h1>MoodLily 🌸</h1>
 
       <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
         <a href="login.html">Login</a>
-        <a href="signup.html" class="signup-btn">Signup</a>
+
+        <a href="signup.html" class="signup-btn"> Signup </a>
       </div>
     </nav>
+
+    <!-- Hero Section -->
 
     <section class="hero">
       <div class="hero-text">
@@ -32,15 +45,105 @@
 
         <p>
           Track moods, write journals, relax with cozy vibes, and build
-          healthier habits.
+          healthier habits inside your dreamy digital sanctuary.
         </p>
 
         <div class="hero-buttons">
           <a href="signup.html" class="primary-btn"> Start Journaling </a>
 
-          <a href="login.html" class="secondary-btn"> Login </a>
+          <a href="#features" class="secondary-btn"> Explore Features </a>
         </div>
       </div>
     </section>
+
+    <!-- Features -->
+
+    <section class="features" id="features">
+      <h2>Why You'll Love MoodLily 💖</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span>😊</span>
+          <h3>Mood Tracking</h3>
+          <p>Log emotions daily with aesthetic emoji mood cards.</p>
+        </div>
+
+        <div class="feature-card">
+          <span>📖</span>
+          <h3>Daily Journals</h3>
+          <p>Capture your thoughts in a calm and private digital diary.</p>
+        </div>
+
+        <div class="feature-card">
+          <span>📊</span>
+          <h3>Mood Analytics</h3>
+          <p>Visualize emotional trends with beautiful charts.</p>
+        </div>
+
+        <div class="feature-card">
+          <span>🎵</span>
+          <h3>Relax Mode</h3>
+          <p>Focus timers, calming music, and breathing animations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section class="about" id="about">
+      <div class="about-card">
+        <h2>Built for cozy productivity 🌸</h2>
+
+        <p>
+          MoodLily combines wellness, journaling, focus tools, and emotional
+          tracking into one elegant experience designed for students and young
+          users.
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+
+    <section class="testimonials">
+      <h2>Little moments of comfort ✨</h2>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>“MoodLily makes journaling feel calming instead of stressful.”</p>
+
+          <h4>— Aanya</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>“The aesthetic is literally Pinterest in a productivity app.”</p>
+
+          <h4>— Riya</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>“I actually started tracking my emotions consistently.”</p>
+
+          <h4>— Meher</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="footer-content">
+        <h2>MoodLily 🌸</h2>
+
+        <p>Your cozy digital mood journal.</p>
+
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Support</a>
+        </div>
+
+        <span> © 2026 MoodLily. Made with 💖 </span>
+      </div>
+    </footer>
   </body>
 </html>
