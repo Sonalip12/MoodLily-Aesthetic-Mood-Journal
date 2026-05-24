@@ -1,7 +1,10 @@
 require("./database");
+
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
+
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
@@ -21,6 +24,8 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("MoodLily Backend Running 🌸");
