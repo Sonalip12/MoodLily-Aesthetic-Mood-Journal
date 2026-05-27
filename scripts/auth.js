@@ -17,7 +17,7 @@ if (signupForm) {
       document.getElementById("password").value;
 
     const response = await fetch(
-      "http://localhost:5000/api/auth/signup",
+      window.moodlilyApiUrl("/auth/signup"),
       {
         method: "POST",
 
@@ -56,7 +56,7 @@ if (loginForm) {
       document.getElementById("loginPassword").value;
 
     const response = await fetch(
-      "http://localhost:5000/api/auth/login",
+      window.moodlilyApiUrl("/auth/login"),
       {
         method: "POST",
 

@@ -9,8 +9,8 @@ const journalStats = document.getElementById("journalStats");
 
 const loadAnalytics = async () => {
   const [moodResponse, journalResponse] = await Promise.all([
-    fetch(`http://localhost:5000/api/moods/summary?user_id=${user.id}`),
-    fetch(`http://localhost:5000/api/journals?user_id=${user.id}`),
+    fetch(window.moodlilyApiUrl(`/moods/summary?user_id=${user.id}`)),
+    fetch(window.moodlilyApiUrl(`/journals?user_id=${user.id}`)),
   ]);
 
   const moodData = await moodResponse.json();

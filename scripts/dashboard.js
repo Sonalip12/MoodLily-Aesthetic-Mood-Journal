@@ -22,7 +22,7 @@ moodCards.forEach((card) => {
       card.dataset.mood;
 
     const response = await fetch(
-      "http://localhost:5000/api/moods/add",
+      window.moodlilyApiUrl("/moods/add"),
       {
         method: "POST",
 

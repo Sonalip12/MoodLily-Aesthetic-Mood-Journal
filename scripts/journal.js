@@ -9,7 +9,7 @@ const journalList = document.getElementById("journalList");
 
 const loadJournals = async () => {
   const response = await fetch(
-    `http://localhost:5000/api/journals?user_id=${user.id}`
+    window.moodlilyApiUrl(`/journals?user_id=${user.id}`)
   );
 
   const data = await response.json();
@@ -39,7 +39,7 @@ if (journalForm) {
     const mood = document.getElementById("journalMood").value;
 
     const response = await fetch(
-      "http://localhost:5000/api/journals/add",
+      window.moodlilyApiUrl("/journals/add"),
       {
         method: "POST",
         headers: {
