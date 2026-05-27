@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics 🌸</title>
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-nav">
+        <a href="dashboard.html">MoodLily 🌸</a>
+        <div class="page-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="journal.html">Journal</a>
+          <a href="relax.html">Relax</a>
+          <a href="profile.html">Profile</a>
+          <button id="logoutBtn" class="button-secondary" type="button">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <section class="page-hero">
+        <h1>Mood Analytics</h1>
+        <p>See how your moods and journaling habits change over time.</p>
+      </section>
+
+      <div class="page-grid two">
+        <section class="page-card">
+          <h2>Mood Summary</h2>
+          <div id="moodStats" class="stats-grid" style="margin-top: 18px"></div>
+        </section>
+
+        <section class="page-card">
+          <h2>Journal Overview</h2>
+          <div
+            id="journalStats"
+            class="stats-grid"
+            style="margin-top: 18px"
+          ></div>
+        </section>
+      </div>
+    </div>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/analytics.js"></script>
+  </body>
+</html>

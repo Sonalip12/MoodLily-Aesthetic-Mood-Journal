@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MoodLily Dashboard 🌸</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <h1>MoodLily 🌸</h1>
+
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="journal.html">Journal</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="relax.html">Relax Mode</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+
+        <button id="logoutBtn">Logout</button>
+      </aside>
+
+      <main class="main-content">
+        <section class="welcome-card">
+          <h2 id="welcomeText">Welcome ✨</h2>
+
+          <p>How are you feeling today?</p>
+        </section>
+
+        <section class="mood-section">
+          <h3>Select Your Mood 🌸</h3>
+
+          <div class="mood-grid">
+            <div class="mood-card" data-mood="Happy">
+              😊
+              <span>Happy</span>
+            </div>
+
+            <div class="mood-card" data-mood="Sad">
+              😢
+              <span>Sad</span>
+            </div>
+
+            <div class="mood-card" data-mood="Calm">
+              😌
+              <span>Calm</span>
+            </div>
+
+            <div class="mood-card" data-mood="Anxious">
+              😰
+              <span>Anxious</span>
+            </div>
+
+            <div class="mood-card" data-mood="Motivated">
+              💪
+              <span>Motivated</span>
+            </div>
+
+            <div class="mood-card" data-mood="Tired">
+              😴
+              <span>Tired</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="quote-card">
+          <h3>Daily Quote ✨</h3>
+
+          <p>“Small steps every day lead to big changes.”</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relax Mode 🌸</title>
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-nav">
+        <a href="dashboard.html">MoodLily 🌸</a>
+        <div class="page-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="journal.html">Journal</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="profile.html">Profile</a>
+        </div>
+      </header>
+
+      <section class="page-hero">
+        <h1>Relax Mode</h1>
+        <p>
+          Take a short break with a focus timer and breathing-friendly calm
+          visuals.
+        </p>
+      </section>
+
+      <section class="timer-card">
+        <div class="timer-display" id="timerDisplay">25:00</div>
+        <p id="timerState" style="text-align: center; margin-bottom: 20px">
+          Ready for a focus session
+        </p>
+        <div class="timer-actions">
+          <button id="startTimer" class="button" type="button">Start</button>
+          <button id="pauseTimer" class="button-secondary" type="button">
+            Pause
+          </button>
+          <button id="resetTimer" class="button-secondary" type="button">
+            Reset
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="scripts/relax.js"></script>
+  </body>
+</html>

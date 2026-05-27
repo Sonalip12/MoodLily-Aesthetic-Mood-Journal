@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal 🌸</title>
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-nav">
+        <a href="dashboard.html">MoodLily 🌸</a>
+        <div class="page-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="relax.html">Relax</a>
+          <a href="profile.html">Profile</a>
+          <button id="logoutBtn" class="button-secondary" type="button">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <section class="page-hero">
+        <h1>Daily Journal</h1>
+        <p>
+          Write down what happened today and keep your thoughts in one place.
+        </p>
+      </section>
+
+      <div class="page-grid two">
+        <section class="page-card">
+          <h2>New Entry</h2>
+          <form id="journalForm" class="form-grid" style="margin-top: 18px">
+            <input
+              id="journalTitle"
+              type="text"
+              placeholder="Entry title"
+              required
+            />
+            <select id="journalMood">
+              <option>Neutral</option>
+              <option>Happy</option>
+              <option>Sad</option>
+              <option>Calm</option>
+              <option>Anxious</option>
+              <option>Motivated</option>
+              <option>Tired</option>
+            </select>
+            <textarea
+              id="journalContent"
+              placeholder="Write your thoughts here..."
+              required
+            ></textarea>
+            <button class="button" type="submit">Save Entry</button>
+          </form>
+        </section>
+
+        <section class="page-card">
+          <h2>Recent Entries</h2>
+          <div
+            id="journalList"
+            class="journal-list"
+            style="margin-top: 18px"
+          ></div>
+        </section>
+      </div>
+    </div>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/journal.js"></script>
+  </body>
+</html>
