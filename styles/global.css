@@ -11,6 +11,10 @@ html{
 :root{
   --font-body:'Manrope', sans-serif;
   --font-display:'Fraunces', serif;
+  --cursor-x:50vw;
+  --cursor-y:50vh;
+  --cursor-nx:0;
+  --cursor-ny:0;
 }
 
 body{
@@ -162,6 +166,8 @@ body > *{
   pointer-events:none;
   z-index:0;
   overflow:hidden;
+  transform:translate3d(calc(var(--cursor-nx) * 8px), calc(var(--cursor-ny) * 8px), 0);
+  transition:transform 180ms ease-out;
 }
 
 .sakura{
@@ -211,6 +217,50 @@ body > *{
 .sakura14{left:76%; animation-duration:16.8s; animation-delay:-5s; transform:scale(0.9) rotate(24deg);}
 .sakura15{left:88%; animation-duration:22s; animation-delay:-15s; transform:scale(1.25) rotate(46deg);}
 .sakura16{left:96%; animation-duration:18s; animation-delay:-8s; transform:scale(1.05) rotate(60deg);}
+
+.flower-cursor-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:4;
+}
+
+.flower-cursor-layer::before{
+  content:"";
+  position:absolute;
+  left:var(--cursor-x);
+  top:var(--cursor-y);
+  width:18px;
+  height:18px;
+  margin-left:-9px;
+  margin-top:-9px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.96) 0 18%, rgba(255,194,224,0.88) 19% 48%, rgba(255,160,204,0.22) 49% 100%);
+  box-shadow:0 0 18px rgba(255,182,214,0.6);
+  opacity:0;
+  transform:scale(0.75);
+  transition:opacity 180ms ease, transform 180ms ease;
+}
+
+body.cursor-active .flower-cursor-layer::before{
+  opacity:0.95;
+  transform:scale(1);
+}
+
+.cursor-petal{
+  position:absolute;
+  width:13px;
+  height:13px;
+  margin-left:-6.5px;
+  margin-top:-6.5px;
+  pointer-events:none;
+  border-radius:78% 22% 76% 24%;
+  background:linear-gradient(135deg, rgba(255,255,255,1), rgba(255,210,232,0.92) 55%, rgba(244,150,196,0.82));
+  transform:rotate(var(--petal-rot));
+  opacity:0.95;
+  animation:cursorPetalFloat 1.25s ease-out forwards;
+}
 
 /* Floating Shapes */
 
@@ -348,7 +398,23 @@ body > *{
   }
 }
 
+@keyframes cursorPetalFloat{
+  0%{
+    opacity:0.95;
+    transform:translate3d(0, 0, 0) rotate(var(--petal-rot)) scale(1);
+  }
+
+  100%{
+    opacity:0;
+    transform:translate3d(var(--drift-x), var(--drift-y), 0) rotate(calc(var(--petal-rot) + 30deg)) scale(0.35);
+  }
+}
+
 @media (max-width: 768px){
+  .flower-cursor-layer{
+    display:none;
+  }
+
   .sakura{
     width:11px;
     height:11px;
@@ -519,8 +585,19 @@ body > *{
   transform:translateY(-8px);
 }
 
-.feature-card span{
-  font-size:3rem;
+.feature-mark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:0.08em;
+  color:#3f3652;
+  background:linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,227,241,0.72));
+  box-shadow:0 10px 24px rgba(105,74,128,0.15);
 }
 
 .feature-card h3{
