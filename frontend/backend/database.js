@@ -1,6 +1,10 @@
 const sqlite3 = require("sqlite3").verbose();
 
-const db = new sqlite3.Database("./moodlily.db", (err) => {
+const dbPath = process.env.VERCEL
+  ? "/tmp/moodlily.db"
+  : "./moodlily.db";
+
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.log(err.message);
   } else {
