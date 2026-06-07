@@ -21,7 +21,9 @@ app.use(
 
 app.use(
   session({
-    secret: "moodlily_secret",
+    secret:
+      process.env.SESSION_SECRET ||
+      "moodlily_secret",
     resave: false,
     saveUninitialized: false,
   })
