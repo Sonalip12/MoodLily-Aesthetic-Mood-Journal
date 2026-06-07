@@ -168,34 +168,45 @@ const createPostgresDb = (connectionString) => {
       : false,
   });
 
-  const schemaReady = Promise.all([
-    pool.query(`
-      CREATE TABLE IF NOT EXISTS users (
-        id SERIAL PRIMARY KEY,
-        username TEXT,
-        email TEXT UNIQUE,
-        password TEXT
-      )
-    `),
-    pool.query(`
-      CREATE TABLE IF NOT EXISTS moods (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER,
-        mood TEXT,
-        created_at TIMESTAMPTZ DEFAULT NOW()
-      )
-    `),
-    pool.query(`
-      CREATE TABLE IF NOT EXISTS journals (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER,
-        title TEXT,
-        content TEXT,
-        mood TEXT,
-        created_at TIMESTAMPTZ DEFAULT NOW()
-      )
-    `),
-  ]);
+  let schemaReadyPromise;
+
+  const ensureSchemaReady = () => {
+    if (!schemaReadyPromise) {
+      schemaReadyPromise = Promise.all([
+        pool.query(`
+          CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            username TEXT,
+            email TEXT UNIQUE,
+            password TEXT
+          )
+        `),
+        pool.query(`
+          CREATE TABLE IF NOT EXISTS moods (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER,
+            mood TEXT,
+            created_at TIMESTAMPTZ DEFAULT NOW()
+          )
+        `),
+        pool.query(`
+          CREATE TABLE IF NOT EXISTS journals (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER,
+            title TEXT,
+            content TEXT,
+            mood TEXT,
+            created_at TIMESTAMPTZ DEFAULT NOW()
+          )
+        `),
+      ]).catch((error) => {
+        schemaReadyPromise = null;
+        throw error;
+      });
+    }
+
+    return schemaReadyPromise;
+  };
 
   return {
     type: "postgres",
@@ -215,7 +226,7 @@ const createPostgresDb = (connectionString) => {
 
       pool
         .query("SELECT 1")
-        .then(() => schemaReady)
+        .then(() => ensureSchemaReady())
         .then(() => pool.query(query, values))
         .then((result) => {
           const lastID = result.rows && result.rows[0] ? result.rows[0].id : undefined;
@@ -232,7 +243,7 @@ const createPostgresDb = (connectionString) => {
 
       pool
         .query("SELECT 1")
-        .then(() => schemaReady)
+        .then(() => ensureSchemaReady())
         .then(() => pool.query(toPgSql(sql), values))
         .then((result) => {
           if (cb) cb(null, result.rows[0]);
@@ -248,7 +259,7 @@ const createPostgresDb = (connectionString) => {
 
       pool
         .query("SELECT 1")
-        .then(() => schemaReady)
+        .then(() => ensureSchemaReady())
         .then(() => pool.query(toPgSql(sql), values))
         .then((result) => {
           if (cb) cb(null, result.rows);
