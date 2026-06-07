@@ -168,6 +168,35 @@ const createPostgresDb = (connectionString) => {
       : false,
   });
 
+  const schemaReady = Promise.all([
+    pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username TEXT,
+        email TEXT UNIQUE,
+        password TEXT
+      )
+    `),
+    pool.query(`
+      CREATE TABLE IF NOT EXISTS moods (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER,
+        mood TEXT,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `),
+    pool.query(`
+      CREATE TABLE IF NOT EXISTS journals (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER,
+        title TEXT,
+        content TEXT,
+        mood TEXT,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `),
+  ]);
+
   return {
     type: "postgres",
 
@@ -185,7 +214,9 @@ const createPostgresDb = (connectionString) => {
       }
 
       pool
-        .query(query, values)
+        .query("SELECT 1")
+        .then(() => schemaReady)
+        .then(() => pool.query(query, values))
         .then((result) => {
           const lastID = result.rows && result.rows[0] ? result.rows[0].id : undefined;
           if (cb) cb.call({ lastID }, null);
@@ -200,7 +231,9 @@ const createPostgresDb = (connectionString) => {
       const cb = typeof params === "function" ? params : callback;
 
       pool
-        .query(toPgSql(sql), values)
+        .query("SELECT 1")
+        .then(() => schemaReady)
+        .then(() => pool.query(toPgSql(sql), values))
         .then((result) => {
           if (cb) cb(null, result.rows[0]);
         })
@@ -214,7 +247,9 @@ const createPostgresDb = (connectionString) => {
       const cb = typeof params === "function" ? params : callback;
 
       pool
-        .query(toPgSql(sql), values)
+        .query("SELECT 1")
+        .then(() => schemaReady)
+        .then(() => pool.query(toPgSql(sql), values))
         .then((result) => {
           if (cb) cb(null, result.rows);
         })
@@ -271,43 +306,11 @@ const initializeSqliteOrMemorySchema = (db) => {
   });
 };
 
-const initializePostgresSchema = (db) => {
-  db.run(`
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
-      username TEXT,
-      email TEXT UNIQUE,
-      password TEXT
-    )
-  `);
-
-  db.run(`
-    CREATE TABLE IF NOT EXISTS moods (
-      id SERIAL PRIMARY KEY,
-      user_id INTEGER,
-      mood TEXT,
-      created_at TIMESTAMPTZ DEFAULT NOW()
-    )
-  `);
-
-  db.run(`
-    CREATE TABLE IF NOT EXISTS journals (
-      id SERIAL PRIMARY KEY,
-      user_id INTEGER,
-      title TEXT,
-      content TEXT,
-      mood TEXT,
-      created_at TIMESTAMPTZ DEFAULT NOW()
-    )
-  `);
-};
-
 let db;
 
 if (process.env.DATABASE_URL) {
   try {
     db = createPostgresDb(process.env.DATABASE_URL);
-    initializePostgresSchema(db);
     console.log("Connected to Postgres database 🌸");
   } catch (error) {
     console.warn("Postgres unavailable, trying SQLite fallback:", error.message);
