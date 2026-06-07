@@ -8,9 +8,14 @@ html{
   scroll-behavior:smooth;
 }
 
+:root{
+  --font-body:'Manrope', sans-serif;
+  --font-display:'Fraunces', serif;
+}
+
 body{
   position:relative;
-  font-family:'Poppins',sans-serif;
+  font-family:var(--font-body);
 
   background:
     radial-gradient(circle at 18% 18%, rgba(255,255,255,0.55), transparent 0 18%, transparent 36%),
@@ -23,6 +28,14 @@ body{
   color:#4B4453;
 
   overflow-x:hidden;
+}
+
+h1,
+h2,
+h3,
+.navbar h1{
+  font-family:var(--font-display);
+  letter-spacing:0.01em;
 }
 
 body::before,
