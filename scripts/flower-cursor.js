@@ -6,6 +6,8 @@
     return;
   }
 
+  body.classList.add("cursor-flower");
+
   const trailLayer = document.createElement("div");
   trailLayer.className = "flower-cursor-layer";
   body.appendChild(trailLayer);
